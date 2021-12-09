@@ -44,7 +44,9 @@ class ScanActivity: AppCompatActivity() , QRCodeView.Delegate{
 
   override fun onStart() {
     super.onStart()
-    doScanWithPermissionCheck()
+    frameBack.postDelayed({
+      doScanWithPermissionCheck()
+    },1000)
   }
 
   override fun onStop() {

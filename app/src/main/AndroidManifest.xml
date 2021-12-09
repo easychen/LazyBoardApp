@@ -3,6 +3,7 @@
     package="com.pushdeer.reactdash">
 
     <uses-feature android:name="android.hardware.camera.any" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <!-- Give permission for app to access the Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
