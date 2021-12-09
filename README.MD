@@ -11,3 +11,11 @@
 - 将 `app/src/main/java/com/pushdeer/reactdash/MainActivity.kt` 中 `22` 行的网址修改为需要默认展示的URL
 - Build 并安装 App 到手机
 - 启动App后，按音量下键唤起/隐藏网址栏
+
+# APP
+
+- 下载 <https://share.weiyun.com/3Mg0Z72y>
+- 使用：
+    1. 音量 - 打开URL界面
+    1. 输入或扫描二维码
+    1. 再次按音量隐藏URL界面
