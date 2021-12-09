@@ -1,11 +1,13 @@
 package com.pushdeer.reactdash
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
@@ -42,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_DONE && v.id == etTargetUrl.id) {
                     reload(etTargetUrl.text.toString())
+                    val inputMethodManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    inputMethodManager.hideSoftInputFromWindow(etTargetUrl.windowToken, 0)
                     return true
                 }
                 return false
