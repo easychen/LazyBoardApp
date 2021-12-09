@@ -1,6 +1,9 @@
 package com.pushdeer.reactdash
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
@@ -8,9 +11,11 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,13 +26,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val SCAN_REQUEST = 1
+    }
+
     private var targetUrl: String = "https://ftqq.com/"
 
     private lateinit var llReload: View
     private lateinit var etTargetUrl: EditText
+    private lateinit var pbLoad: ProgressBar
 
     // private var mWebView: WebView? = null
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,6 +50,11 @@ class MainActivity : AppCompatActivity() {
 
         llReload = findViewById(R.id.ll_reload)
         etTargetUrl = findViewById(R.id.et_target_url)
+        pbLoad = findViewById(R.id.pb_load)
+        findViewById<View>(R.id.imv_scanner).setOnClickListener{
+            val intent = Intent(this, ScanActivity::class.java)
+            startActivityForResult(intent, SCAN_REQUEST)
+        }
 
         etTargetUrl.setOnEditorActionListener(object: TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
@@ -52,14 +68,27 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val client = WebViewClient()
-        with(webView) {
-            webView.setWebViewClient(client)
-            WebView.setWebContentsDebuggingEnabled(true);
-            webView.settings.javaScriptEnabled = true;
+        webView.apply {
+            webViewClient = WebViewClient()
+            WebView.setWebContentsDebuggingEnabled(true)
+
+            settings.javaScriptEnabled = true
+
+            webChromeClient = object :WebChromeClient() {
+                override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                    super.onProgressChanged(view, newProgress)
+                    when (progress) {
+                      100 -> pbLoad.visibility = View.GONE
+                      else -> {
+                          if (pbLoad.visibility == View.GONE) pbLoad.visibility = View.VISIBLE
+                          pbLoad.progress = newProgress
+                      }
+                    }
+                }
+            }
+
             reload(targetUrl)
         }
-
     }
 
     // if you press Back button this code will work
@@ -73,6 +102,14 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == SCAN_REQUEST) {
+            val url = data?.getStringExtra("code") ?:""
+            reload(url)
+        }
     }
 
     private fun reload(url: String) {

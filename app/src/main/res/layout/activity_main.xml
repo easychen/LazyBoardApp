@@ -18,35 +18,60 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/shape_main_reload_bg"
-        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
         android:padding="8dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0"
+        tools:visibility="visible">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Reload Page:"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_target_url"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="e.g. https://www.baidu.com"
-            android:imeActionLabel="Reload"
-            android:imeOptions="actionDone"
-            android:inputType="textUri"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reload Page:"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_target_url"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="e.g. https://www.baidu.com"
+                android:imeActionLabel="Reload"
+                android:imeOptions="actionDone"
+                android:inputType="textUri"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/imv_scanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@mipmap/ic_qr_code_scanner" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pb_load"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:progressDrawable="@drawable/layer_list_web_load_progress"
+            android:visibility="gone"
+            tools:progress="50"
+            tools:visibility="visible" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
