@@ -8,5 +8,6 @@
 # 如何使用
 
 - 用 Android Studio 打开本项目
-- 将 `app/src/main/java/com/pushdeer/reactdash/MainActivity.kt` 中 `31` 行的网址修改为需要展示的URL
+- 将 `app/src/main/java/com/pushdeer/reactdash/MainActivity.kt` 中 `22` 行的网址修改为需要默认展示的URL
 - Build 并安装 App 到手机
+- 启动App后，按音量下键唤起/隐藏网址栏
