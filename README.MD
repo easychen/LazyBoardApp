@@ -1,6 +1,6 @@
 # LazyBoard App
 
-[GitHub仓库](https://github.com/easychen/LazyBoardApp) [大陆镜像](https://gitee.com/easychen/LazyBoardApp)
+[🐙🐱 GitHub仓库](https://github.com/easychen/LazyBoardApp) [🔮 中国大陆镜像仓库@Gitee](https://gitee.com/easychen/LazyBoardApp)
 
 为 LazyBoard 准备的APP，本质上就是一个 WebView 。但包含了以下功能：
 
