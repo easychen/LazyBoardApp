@@ -1,5 +1,7 @@
 # LazyBoard App
 
+[GitHub仓库](https://github.com/easychen/LazyBoardApp) [大陆镜像](https://gitee.com/easychen/LazyBoardApp)
+
 为 LazyBoard 准备的APP，本质上就是一个 WebView 。但包含了以下功能：
 
 - 屏幕常亮
@@ -14,7 +16,7 @@
 
 # APP
 
-- 下载：[github](https://github.com/easychen/LazyBoardApp/releases/tag/alpha)
+- 下载：[github](https://github.com/easychen/LazyBoardApp/releases/tag/alpha) [gitee](https://gitee.com/easychen/LazyBoardApp/releases/alpha)
 - 使用：
     1. 音量 - 打开URL界面
     1. 输入或扫描二维码
