@@ -44,7 +44,7 @@
 
             <EditText
                 android:id="@+id/et_target_url"
-                android:layout_width="0dp"
+                android:layout_width="252dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:hint="e.g. https://www.baidu.com"

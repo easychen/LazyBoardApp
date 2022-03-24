@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         const val SCAN_REQUEST = 1
     }
 
-    private var targetUrl: String = "https://ftqq.com/"
+    private var targetUrl: String = "https://log.ftqq.com/"
 
     private lateinit var llReload: View
     private lateinit var etTargetUrl: EditText
@@ -107,6 +107,10 @@ class MainActivity : AppCompatActivity() {
             llReload.visibility = if (llReload.isVisible) View.INVISIBLE else View.VISIBLE
             return true
         }
+
+//        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+//
+//        }
         return super.onKeyDown(keyCode, event)
     }
 

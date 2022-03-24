@@ -1,6 +1,6 @@
-# DashBoard App
+# LazyBoard App
 
-为 Dashboard 准备的APP，本质上就是一个 WebView 。但包含了以下功能：
+为 LazyBoard 准备的APP，本质上就是一个 WebView 。但包含了以下功能：
 
 - 屏幕常亮
 - 屏幕全屏
