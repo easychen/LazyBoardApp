@@ -14,7 +14,7 @@
 
 # APP
 
-- 下载 <https://share.weiyun.com/3Mg0Z72y>
+- 下载：[github](https://github.com/easychen/LazyBoardApp/releases/tag/alpha)
 - 使用：
     1. 音量 - 打开URL界面
     1. 输入或扫描二维码
